@@ -15,20 +15,16 @@ const useStyles = makeStyles({
   root: {
     minWidth: 200,
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
   media: {
     height: 140,
     backgroundSize: 'contain',
+    marginBottom: "1rem"
+  },
+  cardHeaderRoot: {
+    overflow: 'hidden',
+  },
+  cardHeaderContent: {
+    overflow: 'hidden',
   },
 });
 
@@ -40,6 +36,10 @@ export default function CoffeeCard(props) {
     <Card className={classes.root} variant='outlined'>
       <CardContent>
         <CardHeader
+          classes={{
+            root: classes.cardHeaderRoot,
+            content: classes.cardHeaderContent,
+          }}
           avatar={
             <Avatar
               aria-label='recipe'
@@ -52,11 +52,15 @@ export default function CoffeeCard(props) {
               <ShareRoundedIcon />
             </IconButton>
           }
-          title={title}
+          title={
+            <Typography noWrap gutterBottom variant='h6' component='h4'>
+              {title}
+            </Typography>
+          }
           subheader={price}
         />
         <CardMedia className={classes.media} image={imageUrl} title={title} />
-        <Typography noWrap variant='body2' component='p'>
+        <Typography noWrap variant='body2'>
           {description}
         </Typography>
       </CardContent>
