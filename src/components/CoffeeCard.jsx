@@ -53,7 +53,7 @@ export default function CoffeeCard(props) {
             </IconButton>
           }
           title={
-            <Typography noWrap gutterBottom variant='h6' component='h4'>
+            <Typography title={title} noWrap gutterBottom variant='h6' component='h4'>
               {title}
             </Typography>
           }
